@@ -62,6 +62,13 @@ public class CarController : MonoBehaviour
             {
                 Debug.Log("D");
             }
+
+            //rkey 누르면 자동차 회전 초기화
+            if (keyboard.rKey.wasPressedThisFrame)
+            {
+                Debug.Log("R");
+                ResetCarRotation();
+            }
         }
         else
         {
@@ -185,5 +192,11 @@ public class CarController : MonoBehaviour
         }
 
         return localBounds;
+    }
+
+    private void ResetCarRotation()
+    {
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+        carRigidbody.angularVelocity = Vector3.zero;
     }
 }
