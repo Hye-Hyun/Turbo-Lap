@@ -19,6 +19,8 @@ public class CarController : MonoBehaviour
     private float throttleInput;
     private float steeringInput;
 
+    private Transform lastCheckpoint;
+
     private void Awake()
     {
 
@@ -196,7 +198,30 @@ public class CarController : MonoBehaviour
 
     private void ResetCarRotation()
     {
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+        if (lastCheckpoint == null)
+        {
+            Debug.Log("저장된 체크포인트 없음");
+            return;
+        }
+
+        Debug.Log($"리스폰 {lastCheckpoint.rotation.eulerAngles}");
+
+        carRigidbody.linearVelocity = Vector3.zero;
         carRigidbody.angularVelocity = Vector3.zero;
+
+        transform.position = lastCheckpoint.position;
+        transform.rotation = lastCheckpoint.rotation;
+
+        Debug.Log($"Respawn : {lastCheckpoint.name}");
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Check Point"))
+        {
+            lastCheckpoint = other.transform;
+            Debug.Log($"Checkpoint saved: {other.name}");
+        }
     }
 }
