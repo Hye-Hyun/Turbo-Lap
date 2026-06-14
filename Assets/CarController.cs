@@ -84,6 +84,8 @@ public class CarController : MonoBehaviour
 
         ApplyAcceleration();
         ApplySteering();
+
+        ApplySidewaysGrip();
     }
 
     private void ApplyAcceleration()
