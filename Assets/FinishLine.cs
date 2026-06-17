@@ -11,9 +11,17 @@ public class FinishLine: MonoBehaviour
 
         if (RaceManager.Instance.passedCheckpoint)
         {
-            Debug.Log("Race Finished!");
+            RaceManager.Instance.currentLap++;
 
-            Time.timeScale = 0f;
+            Debug.Log($"Lap {RaceManager.Instance.currentLap} completed!");
+
+            RaceManager.Instance.passedCheckpoint = false;
+
+            if (RaceManager.Instance.currentLap >= RaceManager.Instance.targetLap)
+            {
+                Debug.Log("Race Finished!");
+                Time.timeScale = 0f;
+            }
         }
     }
 }
