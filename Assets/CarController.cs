@@ -45,6 +45,12 @@ public class CarController : MonoBehaviour
 
     private void Update()
     {
+        if (!RaceStartUI.raceStarted)
+        {
+            steeringInput = 0f;
+            return; //시작 전까지는 입력 무시
+        }
+
         Keyboard keyboard = Keyboard.current;
 
         throttleInput = 1f;
@@ -80,7 +86,13 @@ public class CarController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("FixedUpdate");
+        Debug.Log("FixedUpdate"); //콘솔 확인용
+
+        if (!RaceStartUI.raceStarted)
+        {
+            carRigidbody.linearVelocity = Vector3.zero;
+            return;
+        }
 
         ApplyAcceleration();
         ApplySteering();

@@ -6,7 +6,7 @@ public class RaceTimer : MonoBehaviour
     public TextMeshProUGUI timerText;
 
     private float elapsedTime;
-    private bool isRunning = true;
+    private bool isRunning = false;
 
     // Update is called once per frame
     void Update()
@@ -24,5 +24,11 @@ public class RaceTimer : MonoBehaviour
     public void StopTImer()
     {
         isRunning = false;
+    }
+
+    public void StartTimer()
+    {
+        elapsedTime = 0f;
+        isRunning = true;
     }
 }
