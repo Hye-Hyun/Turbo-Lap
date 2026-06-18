@@ -11,8 +11,10 @@ public class RaceStartUI : MonoBehaviour
 
     [SerializeField] private RaceTimer raceTimer;
 
+    [SerializeField] private AudioSource warmingAudio;
     [SerializeField] private AudioSource startAudio;
     [SerializeField] private AudioSource engineAudio;
+    [SerializeField] private AudioSource runningAudio;
 
     public static bool raceStarted = false; //차량 움직임 방지 
 
@@ -23,6 +25,8 @@ public class RaceStartUI : MonoBehaviour
         count2UI.SetActive(false);
         count1UI.SetActive(false);
         startUI.SetActive(false);
+
+        warmingAudio.Play(); //예열음 재생
 
         readyUI.SetActive(true);
         yield return new WaitForSeconds(1f);
@@ -48,6 +52,7 @@ public class RaceStartUI : MonoBehaviour
         startUI.SetActive(false);
 
         engineAudio.Play(); //엔진음 재생
+        runningAudio.Play(); //달리는 소리 재생
 
         raceStarted = true; //카운트다운 이후 차량 움직임
         raceTimer.StartTimer(); //카운트다운 이후 타이머 동작
