@@ -21,6 +21,9 @@ public class CarController : MonoBehaviour
 
     private Transform lastCheckpoint;
 
+    private float keyboardSteering;
+    private float uiSteering;
+
     private void Awake()
     {
 
@@ -53,35 +56,25 @@ public class CarController : MonoBehaviour
 
         Keyboard keyboard = Keyboard.current;
 
-        throttleInput = 1f;
-
         if (keyboard != null)
         {
-            steeringInput = ReadAxis(
-            keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed,
-            keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed);
 
-            if (keyboard.aKey.isPressed)
-            {
-                Debug.Log("A");
-            }
-
-            if (keyboard.dKey.isPressed)
-            {
-                Debug.Log("D");
-            }
-
-            //rkey 누르면 자동차 회전 초기화
             if (keyboard.rKey.wasPressedThisFrame)
             {
-                Debug.Log("R");
-                ResetCarRotation();
+                ResetCarRotation(); //r키를 누르면 리스폰
             }
+
+            keyboardSteering = ReadAxis(
+                keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed,
+                keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed);
         }
         else
         {
-            steeringInput = 0f;
+            keyboardSteering = 0f;
         }
+
+        steeringInput = keyboardSteering + uiSteering;
+        steeringInput = Mathf.Clamp(steeringInput, -1f, 1f);
     }
 
     private void FixedUpdate()
@@ -210,7 +203,7 @@ public class CarController : MonoBehaviour
         return localBounds;
     }
 
-    private void ResetCarRotation()
+    public void ResetCarRotation()
     {
         if (lastCheckpoint == null)
         {
@@ -237,5 +230,10 @@ public class CarController : MonoBehaviour
             lastCheckpoint = other.transform;
             Debug.Log($"Checkpoint saved: {other.name}");
         }
+    }
+
+    public void SetSteering(float value)
+    {
+        uiSteering = value;
     }
 }
