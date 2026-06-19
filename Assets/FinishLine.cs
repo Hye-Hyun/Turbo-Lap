@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class FinishLine: MonoBehaviour
 {
+    [SerializeField] private RaceStartUI raceStartUI;
+
     private void OnTriggerEnter(Collider other)
     {
         if(!other.CompareTag("Player"))
@@ -20,6 +22,9 @@ public class FinishLine: MonoBehaviour
             if (RaceManager.Instance.currentLap >= RaceManager.Instance.targetLap)
             {
                 Debug.Log("Race Finished!");
+
+                raceStartUI.StopRaceAudio(); //레이스 종료 시 엔진음 정지
+
                 Time.timeScale = 0f;
             }
         }

@@ -51,12 +51,17 @@ public class RaceStartUI : MonoBehaviour
         yield return new WaitForSeconds(1f);
         startUI.SetActive(false);
 
-        engineAudio.Play(); //엔진음 재생
-        runningAudio.Play(); //달리는 소리 재생
+        runningAudio.Play(); //레이스 중 엔진음 재생
 
         raceStarted = true; //카운트다운 이후 차량 움직임
         raceTimer.StartTimer(); //카운트다운 이후 타이머 동작
 
         Debug.Log("Race Start!");
+    }
+
+    public void StopRaceAudio()
+    {
+        engineAudio.Stop();
+        runningAudio.Stop();
     }
 }
