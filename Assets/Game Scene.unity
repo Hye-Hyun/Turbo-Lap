@@ -3335,7 +3335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 157457467}
   - component: {fileID: 157457468}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: race timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4108,7 +4108,7 @@ GameObject:
   - component: {fileID: 197866064}
   - component: {fileID: 197866067}
   - component: {fileID: 197866066}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Left Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5691,7 +5691,7 @@ GameObject:
   - component: {fileID: 273593845}
   - component: {fileID: 273593844}
   - component: {fileID: 273593843}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Ready
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8213,7 +8213,7 @@ GameObject:
   - component: {fileID: 411270023}
   - component: {fileID: 411270022}
   - component: {fileID: 411270021}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16085,7 +16085,7 @@ GameObject:
   - component: {fileID: 793363033}
   - component: {fileID: 793363032}
   - component: {fileID: 793363031}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Count_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20656,7 +20656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1017528435}
   - component: {fileID: 1017528436}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 'lap count '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22591,7 +22591,7 @@ GameObject:
   - component: {fileID: 1134723690}
   - component: {fileID: 1134723692}
   - component: {fileID: 1134723691}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: LapText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25043,7 +25043,7 @@ GameObject:
   - component: {fileID: 1263061121}
   - component: {fileID: 1263061120}
   - component: {fileID: 1263061119}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Count_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27496,7 +27496,7 @@ GameObject:
   - component: {fileID: 1380600074}
   - component: {fileID: 1380600073}
   - component: {fileID: 1380600072}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Count_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29239,7 +29239,7 @@ GameObject:
   - component: {fileID: 1479340682}
   - component: {fileID: 1479340681}
   - component: {fileID: 1479340680}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29723,7 +29723,7 @@ GameObject:
   - component: {fileID: 1502896804}
   - component: {fileID: 1502896807}
   - component: {fileID: 1502896806}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Right Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37108,7 +37108,7 @@ GameObject:
   - component: {fileID: 1890233657}
   - component: {fileID: 1890233656}
   - component: {fileID: 1890233655}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37798,7 +37798,7 @@ GameObject:
   - component: {fileID: 1913553250}
   - component: {fileID: 1913553252}
   - component: {fileID: 1913553251}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MiniMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38234,7 +38234,7 @@ GameObject:
   - component: {fileID: 1933690859}
   - component: {fileID: 1933690860}
   - component: {fileID: 1933690861}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Start UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43300,7 +43300,7 @@ GameObject:
   - component: {fileID: 2135592191}
   - component: {fileID: 2135592190}
   - component: {fileID: 2135592192}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Respawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
