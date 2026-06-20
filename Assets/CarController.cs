@@ -91,6 +91,13 @@ public class CarController : MonoBehaviour
         ApplySteering();
 
         ApplySidewaysGrip();
+
+        float currentSpeed = carRigidbody.linearVelocity.magnitude * 3.6f; //km per hour
+
+        if(currentSpeed > RaceManager.Instance.maxSpeed)
+        {
+            RaceManager.Instance.maxSpeed = currentSpeed;
+        }
     }
 
     private void ApplyAcceleration()
@@ -235,5 +242,13 @@ public class CarController : MonoBehaviour
     public void SetSteering(float value)
     {
         uiSteering = value;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            RaceManager.Instance.collisionCount++;
+        }
     }
 }

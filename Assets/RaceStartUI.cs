@@ -64,4 +64,9 @@ public class RaceStartUI : MonoBehaviour
         engineAudio.Stop();
         runningAudio.Stop();
     }
+
+    private void Awake()
+    {
+        raceStarted = false;
+    }
 }

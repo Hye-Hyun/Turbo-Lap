@@ -8,6 +8,8 @@ public class RaceTimer : MonoBehaviour
     private float elapsedTime;
     private bool isRunning = false;
 
+    public float ElapsedTime => elapsedTime;
+     
     // Update is called once per frame
     void Update()
     {

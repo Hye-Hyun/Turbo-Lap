@@ -9,8 +9,21 @@ public class RaceManager : MonoBehaviour
     public int currentLap = 0;
     public int targetLap = 2;
 
+    public float finalTime;
+    public float bestLapTime;
+    public float maxSpeed;
+    public int collisionCount;
+
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
