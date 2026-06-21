@@ -30,7 +30,16 @@ public class FinishLine: MonoBehaviour
             {
                 Debug.Log("Race Finished!");
 
+                float finalTime = raceTimer.ElapsedTime;
+
                 PlayerPrefs.SetFloat("FinalTime", raceTimer.ElapsedTime);
+
+                float bestTime = PlayerPrefs.GetFloat("BestTime", float.MaxValue);
+
+                if(finalTime < bestTime)
+                {
+                    PlayerPrefs.SetFloat("BestTime", finalTime);
+                }
 
                 PlayerPrefs.SetFloat(
                     "TopSpeed",

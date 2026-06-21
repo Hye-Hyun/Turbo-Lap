@@ -6,6 +6,7 @@ public class ResultUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI finalTimeText;
     [SerializeField] private TextMeshProUGUI topSpeedText;
     [SerializeField] private TextMeshProUGUI collisionText;
+    [SerializeField] private TextMeshProUGUI bestTimeText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,6 +14,17 @@ public class ResultUI : MonoBehaviour
         float finalTime = PlayerPrefs.GetFloat("FinalTime", 0f);
 
         finalTimeText.text = FormatTime(finalTime);
+
+        float bestTime = PlayerPrefs.GetFloat("BestTime", float.MaxValue);
+
+        if (bestTime == float.MaxValue)
+        {
+            bestTimeText.text = "--:--.--";
+        }
+        else
+        {
+            bestTimeText.text = FormatTime(bestTime);
+        }
 
         float topSpeed = PlayerPrefs.GetFloat("TopSpeed", 0f);
 
