@@ -8,6 +8,7 @@ public class RaceStartUI : MonoBehaviour
     [SerializeField] private GameObject count2UI;
     [SerializeField] private GameObject count1UI;
     [SerializeField] private GameObject startUI;
+    [SerializeField] private GameObject finishUI;
 
     [SerializeField] private RaceTimer raceTimer;
 
@@ -25,6 +26,8 @@ public class RaceStartUI : MonoBehaviour
         count2UI.SetActive(false);
         count1UI.SetActive(false);
         startUI.SetActive(false);
+
+        finishUI.SetActive(false);
 
         warmingAudio.Play(); //예열음 재생
 
@@ -68,5 +71,14 @@ public class RaceStartUI : MonoBehaviour
     private void Awake()
     {
         raceStarted = false;
+    }
+
+    public IEnumerator ShowFinishUI()
+    {
+        finishUI.SetActive(true);
+
+        yield return new WaitForSeconds(1.5f);
+
+        finishUI.SetActive(false);
     }
 }

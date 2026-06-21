@@ -24,6 +24,8 @@ public class CarController : MonoBehaviour
     private float keyboardSteering;
     private float uiSteering;
 
+    private bool isFinished = false;
+
     private void Awake()
     {
 
@@ -48,7 +50,7 @@ public class CarController : MonoBehaviour
 
     private void Update()
     {
-        if (!RaceStartUI.raceStarted)
+        if (!RaceStartUI.raceStarted || isFinished)
         {
             steeringInput = 0f;
             return; //시작 전까지는 입력 무시
@@ -84,6 +86,14 @@ public class CarController : MonoBehaviour
         if (!RaceStartUI.raceStarted)
         {
             carRigidbody.linearVelocity = Vector3.zero;
+            return;
+        }
+
+        if (isFinished)
+        {
+            ApplySidewaysGrip();
+
+            carRigidbody.linearDamping = 5f;
             return;
         }
 
@@ -250,5 +260,10 @@ public class CarController : MonoBehaviour
         {
             RaceManager.Instance.collisionCount++;
         }
+    }
+
+    public void FinishRace()
+    {
+        isFinished = true;
     }
 }

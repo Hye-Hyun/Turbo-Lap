@@ -1,10 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class FinishLine: MonoBehaviour
 {
     [SerializeField] private RaceStartUI raceStartUI;
     [SerializeField] private RaceTimer raceTimer;
+
+    [SerializeField] private CarController carController;
+
+    [SerializeField] private FadeManager fadeManager;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -35,12 +40,23 @@ public class FinishLine: MonoBehaviour
                     "CollisionCount",
                     RaceManager.Instance.collisionCount);
 
-                raceStartUI.StopRaceAudio(); //레이스 종료 시 엔진음 정지
-
-                //Time.timeScale = 0f;
-
-                SceneManager.LoadScene("Result Scene");
+                StartCoroutine(FinishSequence());
             }
         }
+    }
+
+    private IEnumerator FinishSequence()
+    {
+        raceTimer.StopTimer();
+
+        carController.FinishRace();
+
+        raceStartUI.StopRaceAudio();
+
+        yield return raceStartUI.ShowFinishUI();
+
+        yield return fadeManager.FadeOut();
+
+        SceneManager.LoadScene("Result Scene");
     }
 }

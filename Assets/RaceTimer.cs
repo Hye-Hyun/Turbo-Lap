@@ -23,7 +23,7 @@ public class RaceTimer : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00.00}", minutes, seconds);
     }
 
-    public void StopTImer()
+    public void StopTimer()
     {
         isRunning = false;
     }
